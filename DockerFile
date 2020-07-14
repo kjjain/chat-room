@@ -1,0 +1,23 @@
+#FROM node:carbon
+FROM gcr.io/google-appengine/nodejs
+
+RUN mkdir -p /app
+# Create app directory
+WORKDIR /app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY ../package.json /app/
+
+RUN npm install -g yarn@1.13
+
+RUN yarn install --ignore-engines --unsafe-perm
+# If you are building your code for production
+# RUN npm install --only=production
+COPY .. /app
+# Bundle app source
+
+EXPOSE 3000
+CMD yarn start
+CMD yarn run api-server

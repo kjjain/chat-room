@@ -1,13 +1,272 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+    --main-color: red;
+    --secondary-color: white;
+    --main-text-color: #3e5869;
+    --secondary-text-color: #b0c7d6;
+    --send-message-form: #F5F5F5;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+    font-weight: 200;
+    color: #3e5869;
+}
+
+#root {
+    height: 100%;
+}
+
+.chat-room-header {
+    background: #fff;
+}
+
+/* REST OF CSS */
+.rooms-list {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: var(--main-color);
+    overflow: scroll;
+    color: #fff;
+    height: 100vh;
+    float: left;
+    width: 20%;
+}
+
+.message-board {
+    float: right;
+    width: 80%;
+}
+
+.rooms-list > ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: scroll;
+}
+
+.rooms-list li {
+    margin: 30px 0;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.rooms-list > h3 {
+    margin: 5px 0;
+    color: var(--secondary-color);
+}
+
+.rooms-list .room a {
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    text-decoration: none;
+
+}
+
+.enter-chat {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.enter-username {
+    font-size: 18px;
+    padding: 10px 45px;
+}
+
+.user {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.enter-chat-button {
+    font-size: 18px;
+    padding: 10px 40px;
+    background: red;
+    color: #fff;
+    border: none;
+}
+
+.chat-room-users {
+    margin: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.chat-room-name {
+    margin: 1rem;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.rooms-list .room.active a {
+    color: var(--secondary-color);
+}
+
+.new-room-form {
+    padding: 0 5px;
+    background: var(--secondary-color);
+    color: var(--main-text-color);
+}
+
+.new-room-form form {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-room-form input {
+    width: 135px;
+    background: var(--secondary-color);
+}
+
+.new-room-form button {
+    background: var(--secondary-color);
+    color: var(--main-text-color);
+    border: 0;
+}
+
+.new-room-form input::placeholder {
+    color: var(--main-text-color);
+    font-weight: 200;
+}
+
+.new-room-form input:focus {
+    outline-width: 0;
+}
+
+.new-room-form input {
+    border: 0;
+}
+
+.new-room-form button {
+    border: 0;
+}
+
+.message {
+    margin: 30px 0;
+}
+
+.send-message-button {
+    color: #151582;
+    font-size: 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+}
+
+.send-message-button:focus {
+    border: none;
+}
+
+.message .message-username {
+    font-size: 16px;
+    color: #000;
+    opacity: 0.9;
+    margin-bottom: 6px;
+    padding-top: 10px;
+}
+
+.message .message-text {
+    background: #fff;
+    color: #000;
+    display: inline;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.message-list {
+    box-sizing: border-box;
+    padding-left: 20px;
+    width: 100%;
+    height: 70vh;
+    overflow: scroll;
+    background: #f1eded
+}
+
+.message-list .join-room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 34px;
+    font-weight: 300;
+}
+
+.send-message-form {
+    background: var(--send-message-form);
+    float: right;
+    width: 80%;
+}
+
+.send-message-form input {
+    width: 80%;
+    padding: 20px;
+    margin: 20px;
+    border-style: none;
+    background: var(--send-message-form);
+    font-weight: 200;
+    border: 1px solid;
+
+}
+
+.send-message-form input:focus {
+    outline-width: 0;
+}
+
+.send-message-form input::placeholder {
+    color: var(--main-text-color);
+}
+
+.help-text {
+    position: absolute;
+    top: 10px;
+}
+
+@media only screen and (max-width: 479px) {
+
+    .rooms-list {
+        width: 35%;
+        height: 60vh;
+    }
+
+    .message-board {
+        width: 65%;
+    }
+
+    .message-list {
+        height: 48vh;
+    }
+
+    .send-message-form {
+        width: 100%;
+    }
+
+    .send-message-form input {
+        width: 50%;
+    }
 }
